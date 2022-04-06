@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!--
+  ~ @author  Tigren Solutions <info@tigren.com>
+  ~ @copyright Copyright (c) 2022 Tigren Solutions <https://www.tigren.com>. All rights reserved.
+  ~ @license  Open Software License (“OSL”) v. 3.0
+  -->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="customer_group_catalog_rules">
+        <column xsi:type="int" name="rule_id" unsigned="false" nullable="false" identity="true"
+                comment="Customer Group Catalog Rule Id"/>
+        <column xsi:type="smallint" name="status" identity="false" nullable="false" comment="Status" default="1"/>
+        <column xsi:type="varchar" name="rule_name" nullable="false" length="500" comment="Customer Group Catalog Rule Name"/>
+<!--        <column xsi:type="text" name="priority" nullable="false" comment="Customer Group Catalog Rule Priority"/>-->
+        <column xsi:type="int" name="priority" unsigned="true" nullable="false" comment="Customer Group Catalog Rule Priority"/>
+
+        <column xsi:type="smallint" name="date_range_status" identity="false" nullable="false" comment="Customer Group Catalog Rule Date Range Status" default="0"/>
+        <column xsi:type="date" name="time_rule_start" nullable="true"
+                comment="Customer Group Catalog Rule Time Start"/>
+
+        <column xsi:type="date" name="time_rule_end" nullable="true"
+                comment="Customer Group Catalog Rule Time End"/>
+        <column xsi:type="text" name="customer_group" nullable="false" comment="Customer Group"/>
+        <column xsi:type="smallint" name="hide_category_status" identity="false" nullable="false" comment="Customer Group Catalog Rule Hide Category Status" default="0"/>
+        <column xsi:type="text" name="category_hide" nullable="true" comment="Customer Group Catalog Rule Category Hide"/>
+
+        <column xsi:type="text" name="product_select" nullable="true" comment="Customer Group Catalog Rule Product Select"/>
+
+        <column xsi:type="text" name="store_views" nullable="false" comment="Customer Group Catalog Rule Store View"/>
+
+        <column xsi:type="smallint" name="hide_product_status" identity="false" nullable="false" comment="Customer Group Catalog Rule Hide Product Status" default="0"/>
+        <column xsi:type="smallint" name="hide_product_price_status" identity="false" nullable="false" comment="Customer Group Catalog Rule Hide Product Price Status" default="0"/>
+        <column xsi:type="smallint" name="hide_add_to_cart_status" identity="false" nullable="false" comment="Customer Group Catalog Rule Hide Add To cart" default="0"/>
+        <column xsi:type="smallint" name="hide_add_to_wishlist_status" identity="false" nullable="false" comment="Customer Group Catalog Rule Hide Add To Wishlist Status" default="0"/>
+        <column xsi:type="smallint" name="hide_add_to_compare_status" identity="false" nullable="false" comment="Customer Group Catalog Rule Hide Add To Compare Status" default="0"/>
+        <column xsi:type="smallint" name="direct_link_status" identity="false" nullable="false" comment="Customer Group Catalog Rule Direct Link Status" default="1"/>
+        <column xsi:type="smallint" name="action_on_forbid" identity="false" nullable="false" comment="Customer Group Catalog Rule Action On Forbid" default="0"/>
+        <column xsi:type="int" name="cms_pages_url" unsigned="true" nullable="false" comment="Customer Group Catalog Cms Page"/>
+
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Creation Time"/>
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP"
+                comment="Update Time"/>
+
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="rule_id"/>
+        </constraint>
+
+    </table>
+</schema>

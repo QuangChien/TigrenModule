@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!--
+  ~ @author  Tigren Solutions <info@tigren.com>
+  ~ @copyright Copyright (c) 2022 Tigren Solutions <https://www.tigren.com>. All rights reserved.
+  ~ @license  Open Software License (“OSL”) v. 3.0
+  -->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <referenceBlock class="Tigren\CustomerGroupCatalogRule\Pricing\Render" name="product.price.render.wishlist">
+        <arguments>
+            <argument name="price_render" xsi:type="string">product.price.render.default</argument>
+            <argument name="price_type_code" xsi:type="string">wishlist_configured_price</argument>
+            <argument name="price_label" xsi:type="boolean">false</argument>
+            <argument name="zone" xsi:type="string">item_list</argument>
+        </arguments>
+    </referenceBlock>
+
+    <referenceBlock class="Magento\Wishlist\Block\Customer\Wishlist\Item\Column\Cart" name="customer.wishlist.item.cart" template="Tigren_CustomerGroupCatalogRule::wishlist/item/column/cart.phtml">
+        <arguments>
+            <argument name="allowedQuantityViewModel" xsi:type="object">Magento\Wishlist\ViewModel\AllowedQuantity</argument>
+            <argument name="title" translate="true" xsi:type="string">Add to Cart</argument>
+        </arguments>
+    </referenceBlock>
+</page>

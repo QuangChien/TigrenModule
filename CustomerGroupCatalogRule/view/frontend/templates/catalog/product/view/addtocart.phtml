@@ -1,0 +1,93 @@
+<?php
+/*
+ * @author  Tigren Solutions <info@tigren.com>
+ * @copyright Copyright (c) 2022 Tigren Solutions <https://www.tigren.com>. All rights reserved.
+ * @license  Open Software License (“OSL”) v. 3.0
+ */
+
+/** @var $block \Tigren\CustomerGroupCatalogRule\Block\Catalog\Product\View */
+?>
+<?php $_product = $block->getProduct(); ?>
+<?php $buttonTitle = __('Add to Cart'); ?>
+
+<?php if (in_array($_product->getSku(), $block->getProductInRule())) : ?>
+    <?php if ($block->isHidePrice()) : ?>
+        <span></span>
+    <?php else: ?>
+        <?php if ($block->isHideAddToCart()) : ?>
+            <span></span>
+        <?php else: ?>
+            <?php if ($_product->isSaleable()) : ?>
+                <div class="box-tocart">
+                    <div class="fieldset">
+                        <?php if ($block->shouldRenderQuantity()) : ?>
+                            <div class="field qty">
+                                <label class="label" for="qty"><span><?= $block->escapeHtml(__('Qty')) ?></span></label>
+                                <div class="control">
+                                    <input type="number"
+                                           name="qty"
+                                           id="qty"
+                                           min="0"
+                                           value="<?= $block->getProductDefaultQty() * 1 ?>"
+                                           title="<?= $block->escapeHtmlAttr(__('Qty')) ?>"
+                                           class="input-text qty"
+                                           data-validate="<?= $block->escapeHtml(json_encode($block->getQuantityValidators())) ?>"
+                                    />
+                                </div>
+                            </div>
+                        <?php endif; ?>
+                        <div class="actions">
+                            <button type="submit"
+                                    title="<?= $block->escapeHtmlAttr($buttonTitle) ?>"
+                                    class="action primary tocart"
+                                    id="product-addtocart-button" disabled>
+                                <span><?= $block->escapeHtml($buttonTitle) ?></span>
+                            </button>
+                            <?= $block->getChildHtml('', true) ?>
+                        </div>
+                    </div>
+                </div>
+            <?php endif; ?>
+        <?php endif; ?>
+    <?php endif; ?>
+<?php else: ?>
+    <?php if ($_product->isSaleable()) : ?>
+        <div class="box-tocart">
+            <div class="fieldset">
+                <?php if ($block->shouldRenderQuantity()) : ?>
+                    <div class="field qty">
+                        <label class="label" for="qty"><span><?= $block->escapeHtml(__('Qty')) ?></span></label>
+                        <div class="control">
+                            <input type="number"
+                                   name="qty"
+                                   id="qty"
+                                   min="0"
+                                   value="<?= $block->getProductDefaultQty() * 1 ?>"
+                                   title="<?= $block->escapeHtmlAttr(__('Qty')) ?>"
+                                   class="input-text qty"
+                                   data-validate="<?= $block->escapeHtml(json_encode($block->getQuantityValidators())) ?>"
+                            />
+                        </div>
+                    </div>
+                <?php endif; ?>
+                <div class="actions">
+                    <button type="submit"
+                            title="<?= $block->escapeHtmlAttr($buttonTitle) ?>"
+                            class="action primary tocart"
+                            id="product-addtocart-button" disabled>
+                        <span><?= $block->escapeHtml($buttonTitle) ?></span>
+                    </button>
+                    <?= $block->getChildHtml('', true) ?>
+                </div>
+            </div>
+        </div>
+    <?php endif; ?>
+<?php endif; ?>
+
+<script type="text/x-magento-init">
+    {
+        "#product_addtocart_form": {
+            "Magento_Catalog/js/validate-product": {}
+        }
+    }
+</script>

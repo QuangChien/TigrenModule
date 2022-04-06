@@ -1,0 +1,42 @@
+<?php
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+/** @var \Tigren\CustomerGroupCatalogRule\Block\Catalog\Product\View\AddTo\Wishlist $block */
+?>
+<?php if (in_array($block->getProduct()->getSku(), $block->getProductInRule())) : ?>
+    <?php if ($block->isHideAddToWishList()) : ?>
+        <span></span>
+    <?php else: ?>
+        <?php if ($block->isWishListAllowed()) : ?>
+            <a href="#"
+               class="action towishlist"
+               data-post='<?= /* @noEscape */
+               $block->getWishlistParams() ?>'
+               data-action="add-to-wishlist"><span><?= $block->escapeHtml(__('Add to Wish List')) ?></span></a>
+        <?php endif; ?>
+    <?php endif; ?>
+<?php else: ?>
+    <?php if ($block->isWishListAllowed()) : ?>
+        <a href="#"
+           class="action towishlist"
+           data-post='<?= /* @noEscape */
+           $block->getWishlistParams() ?>'
+           data-action="add-to-wishlist"><span><?= $block->escapeHtml(__('Add to Wish List')) ?></span></a>
+    <?php endif; ?>
+<?php endif; ?>
+
+<script type="text/x-magento-init">
+    {
+        "body": {
+            "addToWishlist": <?= /* @noEscape */
+    $block->getWishlistOptionsJson() ?>
+        }
+    }
+
+
+
+
+</script>

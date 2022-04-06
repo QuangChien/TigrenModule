@@ -1,0 +1,70 @@
+<?php
+/**
+ * @author  Tigren Solutions <info@tigren.com>
+ * @copyright Copyright (c) 2022 Tigren Solutions <https://www.tigren.com>. All rights reserved.
+ * @license  Open Software License (“OSL”) v. 3.0
+ */
+
+namespace Tigren\CustomerGroupCatalogRule\Block\Catalog\Product\View\AddTo;
+
+/**
+ * Product view wishlist block
+ *
+ * @api
+ * @since 100.1.1
+ */
+class Wishlist extends \Tigren\CustomerGroupCatalogRule\Block\Catalog\Product\View
+{
+    /**
+     * Return wishlist widget options json
+     *
+     * @return string
+     * @since 100.1.1
+     */
+    public function getWishlistOptionsJson()
+    {
+        return $this->_jsonEncoder->encode($this->getWishlistOptions());
+    }
+
+    /**
+     * Return wishlist widget options
+     *
+     * @return array
+     * @since 100.1.1
+     */
+    public function getWishlistOptions()
+    {
+        return ['productType' => $this->escapeHtml($this->getProduct()->getTypeId())];
+    }
+
+    /**
+     * Return wishlist params
+     *
+     * @return string
+     * @since 100.1.1
+     */
+    public function getWishlistParams()
+    {
+        $product = $this->getProduct();
+        return $this->_wishlistHelper->getAddParams($product);
+    }
+
+    /**
+     * Check whether the wishlist is allowed
+     *
+     * @return string
+     * @since 100.1.1
+     */
+    public function isWishListAllowed()
+    {
+        return $this->_wishlistHelper->isAllow();
+    }
+
+    /**
+     * @return bool
+     */
+    public function isHideAddToWishList()
+    {
+        return parent::isHideAddToWishList();
+    }
+}

@@ -1,0 +1,32 @@
+{
+    "customer_group_catalog_rules": {
+        "column": {
+            "rule_id": true,
+            "status": true,
+            "rule_name": true,
+            "priority": true,
+            "date_range_status": true,
+            "time_rule_start": true,
+            "time_rule_end": true,
+            "customer_group": true,
+            "hide_category_status": true,
+            "category_hide": true,
+            "hide_product_status": true,
+            "hide_product_price_status": true,
+            "hide_add_to_wishlist_status": true,
+            "hide_add_to_compare_status": true,
+            "direct_link_status": true,
+            "created_at": true,
+            "updated_at": true,
+            "hide_add_to_cart_status": true,
+            "action_on_forbid": true,
+            "cms_pages_url": true,
+            "store_views": true,
+            "product_hide": true,
+            "product_select": true
+        },
+        "constraint": {
+            "PRIMARY": true
+        }
+    }
+}

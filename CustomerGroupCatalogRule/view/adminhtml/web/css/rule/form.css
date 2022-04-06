@@ -1,0 +1,112 @@
+/**
+ * @author  Tigren Solutions <info@tigren.com>
+ * @copyright Copyright (c) 2022 Tigren Solutions <https://www.tigren.com>. All rights reserved.
+ * @license  Open Software License (“OSL”) v. 3.0
+ */
+
+
+.groupcat-fieldset-container {
+    margin: 0 auto;
+    max-width: 530px;
+}
+
+.groupcat-fieldset-container.admin__collapsible-block-wrapper
+.fieldset-wrapper-title {
+    margin-bottom: 22px;
+    /*border-bottom: none;*/
+}
+
+.groupcat-fieldset-container
+.fieldset-wrapper-title {
+    border-bottom: none;
+}
+
+.groupcat-fieldset-container
+.fieldset-wrapper-title >
+.admin__collapsible-title,
+.groupcat-fieldset-container
+.fieldset-wrapper-title>.title {
+    padding-bottom: 0;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.groupcat-fieldset-container
+.admin__fieldset >
+.admin__field >
+.admin__field-label{
+    width: unset;
+    font-size: 1.6rem;
+    float: none;
+    text-align: left;
+}
+
+.groupcat-fieldset-container
+.admin__fieldset-wrapper-content
+.admin__fieldset{
+    padding-top: 0;
+}
+
+.groupcat-fieldset-container
+.admin__fieldset >
+.admin__field{
+    margin-bottom: 0;
+}
+
+.groupcat-fieldset-container
+.admin__fieldset >
+.admin__field >
+.admin__field-control{
+    width: 100%;
+}
+
+.groupcat-fieldset-container
+.admin__control-text,
+.groupcat-fieldset-container
+.admin__field-error{
+    width: 90%;
+}
+
+.groupcat-fieldset-container
+legend.admin__field-label{
+    display: none;
+}
+.groupcat-fieldset-container
+.admin__fieldset >
+fieldset.admin__field{
+    width: 100%;
+}
+
+.time-rule-group-container
+.admin__field-label{
+    display: none;
+}
+
+.groupcat-fieldset-container
+.groupcat-field-multiselect
+.admin__field-label{
+    display: none;
+}
+
+.groupcat-fieldset-container
+.groupcat-field-multiselect
+.admin__control-multiselect{
+    min-width: calc(530px - 4%);
+}
+
+.groupcat-fieldset-container
+.groupcat-categories-multiselect
+.admin__action-multiselect-wrap,
+.groupcat-fieldset-container .admin__control-select,
+.groupcat-fieldset-container .admin__field-note,
+.groupcat-fieldset-container .admin__control-multiselect
+{
+    width: 90%;
+}
+
+.groupcat-fieldset-container .admin__collapsible-block-wrapper.fieldset-wrapper
+.fieldset-wrapper-title{
+    padding-bottom: 22px;
+}
+
+

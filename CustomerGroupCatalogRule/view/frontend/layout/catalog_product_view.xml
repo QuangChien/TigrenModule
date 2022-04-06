@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <referenceBlock class="Tigren\CustomerGroupCatalogRule\Pricing\Render" name="product.price.final">
+        <arguments>
+            <argument name="price_render" xsi:type="string">product.price.render.default</argument>
+            <argument name="price_type_code" xsi:type="string">final_price</argument>
+            <argument name="zone" xsi:type="string">item_view</argument>
+        </arguments>
+    </referenceBlock>
+    <referenceBlock class="Tigren\CustomerGroupCatalogRule\Pricing\Render" name="product.price.tier">
+        <arguments>
+            <argument name="price_render" xsi:type="string">product.price.render.default</argument>
+            <argument name="price_type_code" xsi:type="string">tier_price</argument>
+            <argument name="zone" xsi:type="string">item_view</argument>
+        </arguments>
+    </referenceBlock>
+
+    <referenceBlock class="Tigren\CustomerGroupCatalogRule\Block\Catalog\Product\View" name="product.info.addtocart"
+                    template="Tigren_CustomerGroupCatalogRule::catalog/product/view/addtocart.phtml"/>
+    <referenceBlock class="Tigren\CustomerGroupCatalogRule\Block\Catalog\Product\View"
+                    name="product.info.addtocart.additional"
+                    template="Tigren_CustomerGroupCatalogRule::catalog/product/view/addtocart.phtml"/>
+
+    <referenceBlock class="Tigren\CustomerGroupCatalogRule\Block\Catalog\Product\View\AddTo\Compare"
+                    name="view.addto.compare"
+                    template="Tigren_CustomerGroupCatalogRule::catalog/product/view/addto/compare.phtml">
+        <arguments>
+            <argument name="addToCompareViewModel" xsi:type="object">
+                Magento\Catalog\ViewModel\Product\Checker\AddToCompareAvailability
+            </argument>
+        </arguments>
+    </referenceBlock>
+
+    <referenceBlock class="Tigren\CustomerGroupCatalogRule\Block\Catalog\Product\View\AddTo\Wishlist"
+                    name="view.addto.wishlist"
+                    template="Tigren_CustomerGroupCatalogRule::catalog/product/view/addto/wishlist.phtml"/>
+
+    <referenceBlock class="Magento\Catalog\Block\Product\ProductList\Related" name="catalog.product.related"
+                    template="Tigren_CustomerGroupCatalogRule::catalog/product/list/items.phtml"/>
+</page>
